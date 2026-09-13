@@ -3,6 +3,29 @@
    ============================================================ */
 
 /* ----------------------------------------------------------
+   0. HEADER — sáng mục đang xem khi cuộn
+   ---------------------------------------------------------- */
+(function () {
+  const links = document.querySelectorAll('.site-header-link');
+  if (!links.length) return;
+
+  const targets = [...links]
+    .map(link => document.getElementById(link.dataset.target))
+    .filter(Boolean);
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        links.forEach(link => link.classList.toggle('active', link.dataset.target === id));
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+  targets.forEach(el => observer.observe(el));
+})();
+
+/* ----------------------------------------------------------
    1. PROGRESS BAR
    ---------------------------------------------------------- */
 (function () {

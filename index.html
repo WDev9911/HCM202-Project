@@ -15,6 +15,26 @@
 <div id="progress-bar"></div>
 
 <!-- ======================================================
+     HEADER — thanh nav ngang, sáng mục đang xem khi cuộn
+     ====================================================== -->
+<header class="site-header">
+  <a href="#hero" class="site-header-brand">
+    <span class="site-header-star">★</span>
+    <span class="site-header-brand-text">Tư Tưởng Hồ Chí Minh</span>
+  </a>
+
+  <nav class="site-header-nav" aria-label="Điều hướng chính">
+    <a href="#hero" class="site-header-link" data-target="hero">Trang đầu</a>
+    <a href="#section-1" class="site-header-link" data-target="section-1">Độc lập Dân tộc</a>
+    <a href="#section-2" class="site-header-link" data-target="section-2">Cách mạng GPDT</a>
+    <a href="#section-3" class="site-header-link" data-target="section-3">Chủ nghĩa Xã hội</a>
+    <a href="#section-4" class="site-header-link" data-target="section-4">Mục tiêu &amp; Động lực</a>
+    <a href="#section-5" class="site-header-link" data-target="section-5">Thảo luận</a>
+    <a href="#section-contrib" class="site-header-link" data-target="section-contrib">Đóng góp</a>
+  </nav>
+</header>
+
+<!-- ======================================================
      HERO
      ====================================================== -->
 <section id="hero">
@@ -864,6 +884,98 @@
   </div>
 </section>
 
+
+<!-- ======================================================
+     ĐÓNG GÓP — thành viên nhóm & hỗ trợ từ AI
+     ====================================================== -->
+<section class="section" id="section-contrib">
+  <div class="container" style="position:relative;">
+
+    <div class="section-header reveal">
+      <div class="section-label">Đóng góp</div>
+      <h2 class="section-title">
+        Nhóm thực hiện &<br />
+        <span>Những hỗ trợ trong quá trình làm bài</span>
+      </h2>
+      <p class="section-subtitle">
+        Bài thuyết trình được thực hiện bởi 5 thành viên, với sự hỗ trợ của công cụ AI trong một số khâu
+        kỹ thuật khi xây dựng trang web này.
+      </p>
+    </div>
+
+    <div class="team-grid reveal reveal-delay-1">
+      <div class="team-card">
+        <div class="team-card-name">Nguyễn Văn Nguyên</div>
+        <div class="team-card-part">Phần I — Độc lập Dân tộc</div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-name">Lê Quốc Việt</div>
+        <div class="team-card-part">Phần II — Cách mạng Giải phóng Dân tộc</div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-name">Huỳnh Đức Khánh</div>
+        <div class="team-card-part">Phần III — Chủ nghĩa Xã hội</div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-name">Hoàng Gia Bảo</div>
+        <div class="team-card-part">Phần IV — Mục tiêu &amp; Động lực</div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-name">Đỗ Thành Long</div>
+        <div class="team-card-part">Phần V — Câu hỏi, Thảo luận</div>
+      </div>
+    </div>
+
+    <div class="ai-contrib reveal reveal-delay-2">
+      <div class="ai-contrib-header">
+        <span class="ai-contrib-tag">Hỗ trợ từ AI</span>
+        <h3>Nhóm đã sử dụng 2 công cụ AI để hỗ trợ trong quá trình làm bài</h3>
+      </div>
+
+      <div class="ai-tool-block">
+        <div class="ai-tool-name">ChatGPT</div>
+        <p class="ai-tool-desc">Dùng để <strong style="color:var(--text-heading);">tạo ảnh minh họa</strong> — các ảnh tư liệu, chân dung, sự kiện lịch sử được sử dụng xuyên suốt trang web.</p>
+      </div>
+
+      <div class="ai-tool-block">
+        <div class="ai-tool-name">Claude</div>
+        <p class="ai-tool-desc">Dùng để <strong style="color:var(--text-heading);">tạo web trình chiếu</strong> (dựng giao diện, bố cục trang), <strong style="color:var(--text-heading);">tóm tắt nội dung</strong> từ tài liệu của nhóm thành các mục trình bày ngắn gọn, cùng các việc kỹ thuật khác:</p>
+        <ul class="styled-list">
+          <li><span><strong style="color:var(--text-heading);">Tạo bố cục</strong> — dựng khung giao diện, sắp xếp các phần nội dung, hình ảnh trên trang.</span></li>
+          <li><span><strong style="color:var(--text-heading);">Thiết kế hiệu ứng</strong> — tạo các hiệu ứng chuyển động, hiệu ứng xuất hiện khi cuộn trang cho sinh động.</span></li>
+          <li><span><strong style="color:var(--text-heading);">Đồng bộ giao diện</strong> — thống nhất màu sắc, phông chữ, cách đặt tên các mục xuyên suốt trang.</span></li>
+          <li><span><strong style="color:var(--text-heading);">Xây dựng điều hướng</strong> — dựng thanh menu và hệ thống cuộn nhanh tới từng phần khi bấm chọn.</span></li>
+          <li><span><strong style="color:var(--text-heading);">Kiểm thử hiển thị</strong> — chạy thử trang trên nhiều kích thước màn hình và trình duyệt để phát hiện lỗi bố cục.</span></li>
+          <li><span><strong style="color:var(--text-heading);">Tối ưu hình ảnh</strong> — xử lý kích thước, độ nét của ảnh minh họa để hiển thị rõ trên nhiều loại màn hình.</span></li>
+          <li><span><strong style="color:var(--text-heading);">Rà soát nội dung</strong> — đối chiếu nội dung trên trang với tài liệu gốc của nhóm để đảm bảo không thiếu ý.</span></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================================================
+     FOOTER
+     ====================================================== -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-brand">
+      <span class="site-footer-star">★</span>
+      Tư Tưởng Hồ Chí Minh
+      <span class="site-footer-star">★</span>
+    </div>
+    <p class="site-footer-motto">Độc lập — Tự do — Hạnh phúc</p>
+
+    <div class="site-footer-divider"></div>
+
+    <p class="site-footer-meta">
+      Bài thuyết trình môn HCM202 · Tư tưởng Hồ Chí Minh về Độc lập Dân tộc &amp; Chủ nghĩa Xã hội — Chương 3
+    </p>
+
+    <a href="#hero" class="site-footer-top">↑ Về đầu trang</a>
+  </div>
+</footer>
 
 <script src="script.js"></script>
 </body>

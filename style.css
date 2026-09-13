@@ -50,6 +50,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 76px;
 }
 
 body {
@@ -174,6 +175,90 @@ h1, h2, h3, h4 {
   width: 0%;
   transition: width 0.1s linear;
   box-shadow: 0 0 10px rgba(230,168,23,0.5);
+}
+
+/* =========================================================
+   HEADER — thanh nav ngang, luôn hiện, sáng mục đang xem
+   ========================================================= */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  column-gap: 24px;
+  padding: 14px 24px;
+  background: rgba(26, 18, 9, 0.85);
+  border-bottom: 1px solid rgba(230, 168, 23, 0.2);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.site-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.site-header-star {
+  color: var(--gold-light);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.site-header-brand-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.92);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.site-header-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  justify-self: center;
+  min-width: 0;
+  grid-column: 2;
+}
+
+.site-header-link {
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: color 0.25s, background 0.25s;
+}
+
+.site-header-link:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.08);
+}
+
+.site-header-link.active {
+  color: var(--gold-light);
+  background: rgba(230,168,23,0.14);
+}
+
+@media (max-width: 560px) {
+  .site-header-brand-text { display: none; }
+  .site-header { padding: 12px 16px; }
 }
 
 /* =========================================================
@@ -1169,6 +1254,184 @@ h1, h2, h3, h4 {
 .reveal-delay-6 { transition-delay: 0.6s; }
 
 /* =========================================================
+   ĐÓNG GÓP — thành viên nhóm & hỗ trợ AI
+   ========================================================= */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.team-card {
+  background: var(--grad-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px 16px;
+  text-align: center;
+  transition: transform 0.3s var(--ease-out), border-color 0.3s;
+}
+
+.team-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-gold);
+}
+
+.team-card-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-heading);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.team-card-part {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--gold-dark);
+  background: rgba(230,168,23,0.12);
+  border: 1px solid rgba(230,168,23,0.25);
+  padding: 5px 12px;
+  border-radius: 100px;
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+
+.ai-contrib {
+  background: linear-gradient(135deg, rgba(230,168,23,0.06), rgba(181,41,14,0.04));
+  border: 1px solid var(--border-gold);
+  border-radius: 20px;
+  padding: 32px 36px;
+}
+
+.ai-contrib-header {
+  margin-bottom: 20px;
+}
+
+.ai-contrib-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  background: rgba(230,168,23,0.14);
+  border: 1px solid rgba(230,168,23,0.3);
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 12px;
+}
+
+.ai-contrib-header h3 {
+  font-size: 1.1rem;
+  color: var(--text-heading);
+  line-height: 1.5;
+}
+
+.ai-tool-block {
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid var(--border-gold);
+}
+
+.ai-tool-block:first-of-type {
+  padding-top: 0;
+  margin-top: 0;
+  border-top: none;
+}
+
+.ai-tool-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--gold-dark);
+  margin-bottom: 8px;
+}
+
+.ai-tool-desc {
+  font-size: 0.9rem;
+  color: var(--text-body);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer {
+  background: linear-gradient(160deg, #1a0f08 0%, #241209 100%);
+  border-top: 1px solid rgba(230,168,23, 0.25);
+  padding: 56px 24px 40px;
+  text-align: center;
+}
+
+.site-footer-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.site-footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: rgba(255,255,255,0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.site-footer-star {
+  color: var(--gold-light);
+  font-size: 0.9rem;
+}
+
+.site-footer-motto {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: var(--gold-light);
+  margin-bottom: 28px;
+}
+
+.site-footer-divider {
+  width: 60px;
+  height: 1px;
+  background: rgba(230,168,23,0.3);
+  margin: 0 auto 28px;
+}
+
+.site-footer-meta {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.site-footer-top {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  padding: 8px 18px;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 100px;
+  transition: color 0.25s, border-color 0.25s, background 0.25s;
+}
+
+.site-footer-top:hover {
+  color: var(--gold-light);
+  border-color: rgba(230,168,23,0.4);
+  background: rgba(230,168,23,0.08);
+}
+
+/* =========================================================
    RESPONSIVE
    ========================================================= */
 @media (max-width: 1024px) {
@@ -1200,11 +1463,13 @@ h1, h2, h3, h4 {
   .goal-grid, .driver-grid,
   .feature-row { grid-template-columns: 1fr; }
   .stat-banner { grid-template-columns: repeat(2, 1fr); }
+  .team-grid { grid-template-columns: repeat(3, 1fr); }
   #nav-sidebar { display: none; }
 }
 
 @media (max-width: 600px) {
   .stat-banner { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
   .hero-meta { gap: 24px; }
 }
 

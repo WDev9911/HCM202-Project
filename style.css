@@ -783,6 +783,31 @@ h1, h2, h3, h4 {
   pointer-events: none;
 }
 
+/* One-time gold sweep when a quote scrolls into view — stays fully within
+   the box (inset:0), so it never needs overflow:hidden on .quote-block
+   (that would clip the decorative quote mark above). */
+.quote-block::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(100deg, transparent 42%, rgba(230,168,23,0.4) 50%, transparent 58%);
+  background-size: 250% 100%;
+  background-position: 150% 0;
+  background-repeat: no-repeat;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.quote-block.quote-shine::after {
+  animation: quote-shine-sweep 1.2s ease-out;
+}
+
+@keyframes quote-shine-sweep {
+  0%   { opacity: 1; background-position: 150% 0; }
+  100% { opacity: 0; background-position: -50% 0; }
+}
+
 .quote-block p {
   font-family: 'Playfair Display', serif;
   font-style: italic;

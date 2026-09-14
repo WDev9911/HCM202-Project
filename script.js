@@ -26,6 +26,25 @@
 })();
 
 /* ----------------------------------------------------------
+   0b. TRÍCH DẪN — vệt sáng quét qua một lần khi cuộn tới
+   ---------------------------------------------------------- */
+(function () {
+  const quotes = document.querySelectorAll('.quote-block');
+  if (!quotes.length) return;
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('quote-shine');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  quotes.forEach(el => observer.observe(el));
+})();
+
+/* ----------------------------------------------------------
    1. PROGRESS BAR
    ---------------------------------------------------------- */
 (function () {

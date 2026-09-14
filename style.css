@@ -186,48 +186,49 @@ h1, h2, h3, h4 {
 .flag-hoist {
   --f: 0;
   position: fixed;
-  right: 30px;
+  right: 34px;
   bottom: 20px;
-  width: 190px;
-  height: 525px;
+  width: 360px;
+  height: 922px;
+  max-height: 78vh;
   pointer-events: none;
   z-index: 900;
 }
 
 .flag-hoist-pole {
   position: absolute;
-  left: 115px;
-  top: 35px;
-  width: 10px;
-  height: 450px;
-  border-radius: 5px;
+  left: 203px;
+  top: 62px;
+  width: 18px;
+  height: 790px;
+  border-radius: 9px;
   background: linear-gradient(180deg, #b0895a, #6b4f2a);
-  box-shadow: 2px 0 4px rgba(0,0,0,0.15);
+  box-shadow: 3px 0 6px rgba(0,0,0,0.15);
 }
 
 .flag-hoist-pulley {
   position: absolute;
-  left: 110px;
-  top: 25px;
-  width: 20px;
-  height: 20px;
+  left: 193px;
+  top: 45px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   background: var(--gold-primary);
-  box-shadow: 0 0 10px rgba(200,134,10,0.5);
+  box-shadow: 0 0 18px rgba(200,134,10,0.5);
 }
 
 .flag-hoist-flag {
   position: absolute;
-  left: 35px;
-  top: calc(35px + (1 - var(--f)) * 375px);
-  width: 80px;
-  height: 50px;
+  left: 62px;
+  top: calc(62px + (1 - var(--f)) * 659px);
+  width: 150px;
+  height: 95px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--red-primary);
-  border-radius: 2px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+  border-radius: 4px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
   transform-origin: right center;
   animation: flag-flutter 2.6s ease-in-out infinite;
   transition: box-shadow 0.4s ease;
@@ -235,13 +236,13 @@ h1, h2, h3, h4 {
 
 .flag-hoist-star {
   color: var(--gold-primary);
-  font-size: 28px;
+  font-size: 52px;
   line-height: 1;
-  transform: translateX(-8px);
+  transform: translateX(-15px);
 }
 
 .flag-hoist.flag-raised .flag-hoist-flag {
-  box-shadow: 0 0 30px 6px rgba(200,134,10,0.6);
+  box-shadow: 0 0 56px 12px rgba(200,134,10,0.6);
 }
 
 @keyframes flag-flutter {
@@ -251,12 +252,16 @@ h1, h2, h3, h4 {
   75%      { transform: skewY(5deg) scaleX(0.96); }
 }
 
+@media (max-width: 1200px) {
+  .flag-hoist { transform: scale(0.48); transform-origin: bottom right; }
+}
+
 @media (max-width: 900px) {
-  .flag-hoist { transform: scale(0.55); transform-origin: bottom right; right: 10px; bottom: 10px; }
+  .flag-hoist { transform: scale(0.3); transform-origin: bottom right; right: 10px; bottom: 10px; }
 }
 
 @media (max-width: 600px) {
-  .flag-hoist { transform: scale(0.4); transform-origin: bottom right; right: 6px; bottom: 10px; }
+  .flag-hoist { transform: scale(0.18); transform-origin: bottom right; right: 6px; bottom: 10px; }
 }
 
 /* =========================================================

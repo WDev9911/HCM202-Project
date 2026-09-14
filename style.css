@@ -178,6 +178,113 @@ h1, h2, h3, h4 {
 }
 
 /* =========================================================
+   KÉO CỜ — lá cờ dâng lên theo % đã cuộn trang, có dây kéo
+   Toàn bộ vị trí điều khiển bằng biến --f (0 → 1), gán bằng
+   JS theo scroll. Chỉ dùng transform/height nên rất nhẹ, không
+   ảnh hưởng hiệu năng cuộn trang.
+   ========================================================= */
+.flag-hoist {
+  --f: 0;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 76px;
+  height: 210px;
+  pointer-events: none;
+  z-index: 900;
+}
+
+.flag-hoist-pole {
+  position: absolute;
+  left: 52px;
+  top: 14px;
+  width: 4px;
+  height: 180px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #b0895a, #6b4f2a);
+  box-shadow: 1px 0 2px rgba(0,0,0,0.15);
+}
+
+.flag-hoist-pulley {
+  position: absolute;
+  left: 51px;
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold-primary);
+  box-shadow: 0 0 4px rgba(200,134,10,0.5);
+}
+
+.flag-hoist-rope {
+  position: absolute;
+  top: 14px;
+  width: 2px;
+  background: #8a6d3b;
+}
+
+.flag-hoist-rope-flag {
+  left: 34px;
+  height: calc((1 - var(--f)) * 150px);
+}
+
+.flag-hoist-rope-pull {
+  left: 60px;
+  height: calc(var(--f) * 150px);
+}
+
+.flag-hoist-rope-pull::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #6b4f2a;
+}
+
+.flag-hoist-flag {
+  position: absolute;
+  left: 2px;
+  top: calc(14px + (1 - var(--f)) * 150px);
+  width: 32px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--red-primary);
+  border-radius: 1px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+  transform-origin: right center;
+  animation: flag-flutter 2.6s ease-in-out infinite;
+  transition: box-shadow 0.4s ease;
+}
+
+.flag-hoist-star {
+  color: var(--gold-primary);
+  font-size: 11px;
+  line-height: 1;
+  transform: translateX(-3px);
+}
+
+.flag-hoist.flag-raised .flag-hoist-flag {
+  box-shadow: 0 0 14px 3px rgba(200,134,10,0.6);
+}
+
+@keyframes flag-flutter {
+  0%, 100% { transform: skewY(0deg) scaleX(1); }
+  25%      { transform: skewY(-5deg) scaleX(0.96); }
+  50%      { transform: skewY(0deg) scaleX(1.03); }
+  75%      { transform: skewY(5deg) scaleX(0.96); }
+}
+
+@media (max-width: 600px) {
+  .flag-hoist { transform: scale(0.78); transform-origin: bottom right; right: 10px; bottom: 10px; }
+}
+
+/* =========================================================
    HEADER — thanh nav ngang, luôn hiện, sáng mục đang xem
    ========================================================= */
 .site-header {

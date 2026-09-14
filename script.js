@@ -64,6 +64,25 @@
 })();
 
 /* ----------------------------------------------------------
+   1b. KÉO CỜ — lá cờ dâng lên theo tiến trình cuộn trang
+   ---------------------------------------------------------- */
+(function () {
+  const hoist = document.getElementById('flag-hoist');
+  if (!hoist) return;
+
+  function updateHoist() {
+    const scrollTop = window.scrollY;
+    const docHeight  = document.documentElement.scrollHeight - window.innerHeight;
+    const f = docHeight > 0 ? Math.min(Math.max(scrollTop / docHeight, 0), 1) : 0;
+    hoist.style.setProperty('--f', f);
+    hoist.classList.toggle('flag-raised', f > 0.98);
+  }
+
+  window.addEventListener('scroll', updateHoist, { passive: true });
+  updateHoist();
+})();
+
+/* ----------------------------------------------------------
    3. SCROLL REVEAL — Intersection Observer
    ---------------------------------------------------------- */
 (function () {
